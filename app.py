@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 app=Flask("__name__")
 
-@app.route("/",methods=["post","get"])
+@app.route("/insert",methods=["post","get"])
 def Insert():
     if request.form.get("id")!=None:
         id=request.form.get("id")
@@ -20,7 +20,7 @@ def Insert():
 
     return render_template("insert.html")
 
-@app.route("/read")
+@app.route("/")
 def read():
     client=MongoClient("mongodb://localhost:27017")
     database=client.dbname
